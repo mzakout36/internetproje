@@ -1,0 +1,80 @@
+﻿@model IEnumerable<WebApplication1.Models.lesson>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a href="@Url.Action("lessonAdd","school")" class="btn px-15 btn-primary">
+    Yeni Ders Ekle
+</a>
+<table class="table mb-0 table-borderless team-table" data-sorting="true"
+       data-filter-container="#filter-form-container" data-paging-current="1"
+       data-paging-position="right" data-paging-size="10">
+    <thead>
+        <tr class="userDatatable-header">
+            <th>
+                Id
+            </th>
+            <th>
+                Adı
+            </th>
+            <th>
+                Kredisi
+            </th>
+            <th>
+                Dersi Veren
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() > 0)
+        {
+            foreach (var lesson in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="userDatatable-content" style="align-items:center">
+                            @lesson.lessonId
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            @lesson.name
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            @lesson.point
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            @lesson.general.name
+                        </div>
+                    </td>
+                    <td>
+                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                            <li>
+                                <a href="@Url.Action("lessonEdit","school", new {  id=lesson.lessonId  })">
+                                    Güncelle
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("lessonRemove","school", new {  id=lesson.lessonId  })">
+                                    Sil
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+        }
+    </tbody>
+</table>

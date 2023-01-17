@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    @*<link rel="stylesheet" href="~/Content/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/Content/style.css" asp-append-version="true" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/Home/Index">Oxford University </a>
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dersler</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/school/lessonAdd">Giriş</a>
+                                <a class="dropdown-item" href="/school/lessonList">Liste</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Öğrenciler</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/school/studentAdd">Giriş</a>
+                                <a class="dropdown-item" href="/school/studentList">Liste</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Öğrenci Dersleri</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/school/toLessonAdd">Giriş</a>
+                                <a class="dropdown-item" href="/school/toLessonList">Liste</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Okul Yönetimi</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/school/generalAdd">Giriş</a>
+                                <a class="dropdown-item" href="/school/generalList">Liste</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <div id="div_footer">
+                Oxford University <p>&copy; 2023 - My ASP.NET Application</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

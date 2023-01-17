@@ -1,0 +1,80 @@
+﻿@model IEnumerable<WebApplication1.Models.student>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a href="@Url.Action("studentAdd","school")" class="btn px-15 btn-primary">
+    Yeni Öğrenci Ekle
+</a>
+<table class="table mb-0 table-borderless team-table" data-sorting="true"
+       data-filter-container="#filter-form-container" data-paging-current="1"
+       data-paging-position="right" data-paging-size="10">
+    <thead>
+        <tr class="userDatatable-header">
+            <th>
+                ÖğrenciId
+            </th>
+            <th>
+                Öğrenci No
+            </th>
+            <th>
+                Adı Soyadı
+            </th>
+            <th>
+                Bölümü
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() > 0)
+        {
+            foreach (var student in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="userDatatable-content" style="align-items:center">
+                            @student.studentId
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            @student.number
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            @student.name
+                        </div>
+                    </td>
+                    <td>
+                        <div class="userDatatable-content">
+                            @student.dep
+                        </div>
+                    </td>
+                    <td>
+                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                            <li>
+                                <a href="@Url.Action("studentEdit","school", new {  id=student.studentId  })">
+                                    Güncelle
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("studentRemove","school", new {  id=student.studentId  })">
+                                    Sil
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+        }
+    </tbody>
+</table>

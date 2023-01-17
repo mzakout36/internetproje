@@ -1,0 +1,70 @@
+﻿@model WebApplication1.Models.general
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("generalEdit", "school", FormMethod.Post))
+{
+    <div class="col-lg-12">
+        <div class="card card-horizontal card-default card-md mb-4">
+            <div class="card-header">
+                <h3><b>YÖNETİCİ GÜNCELLEME</b></h3>
+            </div>
+            <div class="card-body py-md-30">
+                <div class="horizontal-form">
+                    <form action="#">
+                        <div style="background-color:darkred; text-align:center; align-items:center;">
+                            <h3 style="color: white;">@ViewBag.Message</h3>
+                        </div>
+                        <div class="form-group row mb-25">
+                            <div class="col-sm-3 d-flex aling-items-center">
+                                <label for="inputEmailIcon" class=" col-form-label color-dark fs-14 fw-500 align-center">
+                                    Adı Soyadı
+                                </label>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="with-icon">
+                                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control  ih-medium ip-gray radius-xs b-light", id = "inputEmailIcon", placeholder = "adı soyadı" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-25">
+                            <div class="col-sm-3 d-flex aling-items-center">
+                                <label for="inputEmailIcon" class=" col-form-label color-dark fs-14 fw-500 align-center">
+                                    Görevi
+                                </label>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="with-icon">
+                                    @Html.EditorFor(model => model.objective, new { htmlAttributes = new { @class = "form-control  ih-medium ip-gray radius-xs b-light", id = "inputEmailIcon", placeholder = "gg/aa/yyyy" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-25">
+                            <div class="col-sm-3 d-flex aling-items-center">
+                                <label for="inputEmailIcon" class=" col-form-label color-dark fs-14 fw-500 align-center">
+                                    Yönetim Tipi
+                                </label>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="with-icon">
+                                    <select class="form-control  form-control-lg text-center" name="type" id="type">
+                                        <option>Öğretmen</option>
+                                        <option>İdare</option>
+                                        <option>Öğrenci İşleri</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layout-button mt-25">
+                            <input type="submit" value="Ekle" class="btn btn-primary btn-default btn-squared px-30" style="width:100%" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
